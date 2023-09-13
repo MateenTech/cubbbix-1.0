@@ -1,0 +1,36 @@
+"use client"
+import { services } from '../../data';
+import { Fade } from 'react-awesome-reveal';
+
+export const Services = () => {
+  return (
+    <div id='services' className='w-full min-h-screen bg-slate-200'>
+      <section className='w-full min-h-screen  container mx-auto px-2 py-28'>
+        <Fade direction='right'>
+          <h1 className='font-extrabold text-5xl text-sky-400 text-center'>Services</h1>
+        </Fade>
+
+        <Fade direction='up'>
+          <ul className='mt-11 px-9 grid gap-9
+        md:grid-cols-2
+        xl:grid-cols-3'>
+            {
+              services.map((service) => {
+                const { category, description } = service;
+                return (
+                  <li key={category} className='bg-slate-100 p-9 rounded-xl cursor-pointer group hover:bg-slate-900 shadow-xl border-2 border-slate-600 hover:border-transparent'>
+                    <h3 className='mb-4 text-lg font-semibold text-slate-800 group-hover:text-sky-500'>{category}</h3>
+                    <p className='text-slate-600 group-hover:text-slate-500'>
+                      {description}
+                    </p>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </Fade>
+
+      </section>
+    </div>
+  )
+}

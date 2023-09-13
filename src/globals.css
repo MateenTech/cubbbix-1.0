@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+}
+
+.services_list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto, minmax(360px, 1fr));
+  grid-template-rows: auto;
+}
+
+
+/* @media screen and (min-width: 920px) {
+  .services_list {
+    display: grid;
+    grid-template-columns: ;
+  }
+} */
