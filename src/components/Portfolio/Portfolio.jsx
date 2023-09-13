@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { ContextAPI } from "../../apis/ContextApi";
-import { Fade, Slide } from 'react-awesome-reveal'
+import { Fade } from 'react-awesome-reveal'
+import { Carousel } from "react-responsive-carousel";
+
 
 export const Portfolio = () => {
     const [projects, setProjects] = useState([]);
@@ -25,15 +27,19 @@ export const Portfolio = () => {
                                     const { name, ratings, users, descp, images } = project;
                                     return (
                                         <li key={indx} className="max-w-sm shadow-lg bg-slate-50 rounded-xl overflow-hidden ">
-                                            {
-                                                images.map((img) => {
-                                                    return (
-                                                        <div className="max-h-80 overflow-hidden flex flex-row items-center">
-                                                <img src={img} alt={`${name} images`} style={{ width: "100%", height: "100%" }} />
-                                            </div>
-                                                    )
-                                                })
-                                            }
+                                            <Carousel showArrows={true} showThumbs={false}>
+
+                                                {
+                                                    images.map((img, indx) => {
+                                                        console.log(img)
+                                                        return (
+                                                            <div  className=" w-full h-80 grid  place-content-start shadow-sm">
+                                                                <img src={img} alt={`${name} images`} key={indx} />
+                                                            </div>
+                                                        )
+                                                    })
+                                                }
+                                            </Carousel>
                                             <div className=" p-7">
                                                 <h3 className="text-slate-800 text-2xl font-semibold mb-4">{name}</h3>
                                                 <div className="flex items-center gap-3 mb-4">
